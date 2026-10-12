@@ -39,7 +39,7 @@ As seguintes tecnologias e ferramentas estão planeadas para a implementação d
 - **Controle de Versão:** Git e GitHub.
 
 ---
-👩‍💻 Autora
+## 👩‍💻 Autora
 
 Stefânia Alves Martins
 
