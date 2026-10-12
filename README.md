@@ -1,73 +1,63 @@
-# Portfólio acadêmico — Stefânia Alves Martins
+# 🕹️ Portfólio Profissional – Brick Game
 
-Este portfólio acadêmico foi desenvolvido para a disciplina de Desenvolvimento de Interfaces Web (DIW). Sou estudante de Ciência da Computação, atualmente no segundo período, e estou construindo minha trajetória na área de tecnologia. Tenho interesse em desenvolvimento de software e na criação de soluções digitais.
+Portfólio profissional desenvolvido para a disciplina de **Desenvolvimento de Interfaces Web (DIW)** da PUC Minas. O projeto adota uma identidade visual única e nostálgica inspirada no clássico console portátil **Brick Game**, unindo o design retrô/pixel com uma estrutura moderna, limpa e responsiva.
 
-O projeto utiliza HTML para estruturar o conteúdo, CSS para definir a apresentação visual, JavaScript para carregar os dados e JSON para armazenar as informações do perfil.
+---
 
-## Wireframe da interface
+## 📋 Descrição do Projeto
+O objetivo deste portfólio é apresentar de forma criativa e acessível a minha trajetória académica e profissional, destacando:
+- **Sobre Mim:** Apresentação pessoal em português ou inglês, selecionada pelo controle de idioma, destacando a transição da Enfermagem para a Ciência da Computação na PUC Minas.
+- **Projetos:** Linha do tempo interativa com os principais desenvolvimentos académicos e práticos.
+- **Experiências:** Histórico profissional e académico estruturado.
+- **Contato:** Canais de comunicação diretos e formulário interativo, com interface disponível em português e inglês.
 
-[WireFrame (1).pdf](<wireframes/WireFrame (1).pdf>)
+---
 
-O wireframe apresenta as versões para computador e celular e define a identidade visual BRICK: moldura de terminal, tela verde-sálvia, navegação escura e destaques amarelos.
+## 🎨 Protótipos e Wireframes (Figma)
+O projeto foi planeado com foco em média fidelidade, simulando a interface de um dispositivo portátil com ecrã integrado, painel de pontuação e comandos direcionais.
 
-## Sprint 2
+Abaixo estão dispostas as telas do projeto em suas respetivas visualizações:
 
-- Layout implementado seguindo o wireframe: identidade BRICK, moldura de terminal, tela verde-sálvia e navegação com destaque amarelo.
-- As cinco seções funcionam como telas independentes: o menu troca a tela exibida em vez de empilhar todas em uma página longa. Os links de voltar/avançar do navegador acompanham a navegação.
-- Início com apresentação, ilustração geométrica e atalhos para as seções.
-- Seção "Sobre mim" com conteúdo em português e inglês, formação, interesses e objetivo profissional.
-- Projetos exibidos em cartões organizados por ano na linha do tempo, gerados a partir de `data/portfolio.json`.
-- Experiências acadêmicas organizadas em cartões com categoria, instituição, período e descrição.
-- Contato com e-mail, perfis reais de LinkedIn e GitHub, além de formulário com campos obrigatórios e validação de formato de e-mail.
-- O envio do formulário prepara uma mensagem e abre o aplicativo de e-mail configurado no dispositivo. O site é estático e não envia mensagens por um servidor.
-- Composição responsiva para desktop e celular e controles visuais de Brick Game no rodapé. Se uma tela ultrapassar o espaço disponível, ela pode rolar sem mostrar as outras seções.
-- Os controles do jogo são interativos: ON/OFF liga a tela, START inicia/pausa uma missão, SOUND ativa efeitos sonoros, o direcional navega entre telas e RESET reinicia a pontuação.
-- O portfólio inicia com a tela desligada: pressione o botão ON no rodapé ou o comando amarelo na tela para começar. RESET reinicia a missão sem ligar a tela automaticamente.
-- Na missão, cada tela visitada pela primeira vez vale 100 pontos. Explore as cinco telas para concluir o desafio com 500 pontos. O teclado também funciona: setas navegam/rolam, Espaço inicia ou pausa, M ativa/desativa o som e R reinicia.
-- Os botões físicos do jogo foram ampliados para facilitar o uso no desktop e em dispositivos móveis.
+| Página | Versão Desktop | Versão Mobile / Responsiva |
+| :--- | :---: | :---: |
+| **Página Inicial (Home)** | <img width="500" alt="Wireframe Contato Desktop" src="https://github.com/user-attachments/assets/de17438c-6a8c-4249-88c1-b84a4b7cb535" /> | <img width="300" alt="Wireframe Contato Mobile" src="https://github.com/user-attachments/assets/79feb450-5e08-4789-952a-844ea1a15434" /> |
+| **Sobre mim** | <img width="500" alt="Wireframe Experiências Desktop" src="https://github.com/user-attachments/assets/da8643ae-d0fd-4d08-877c-3c54f04d0621" /> | <img width="300" alt="Wireframe Experiências Mobile" src="https://github.com/user-attachments/assets/c6a91695-30d3-4561-81fb-3a1061125f3d" /> |
+| **Projetos** | <img width="500" alt="Wireframe Projetos Desktop" src="https://github.com/user-attachments/assets/b21f93d9-12bb-41cf-9d5b-653f7b2244dc" /> | <img width="300" alt="Wireframe Projetos Mobile" src="https://github.com/user-attachments/assets/5bb42ebd-89df-44a3-acea-c61bf92b1ce6" /> |
+| **Experiências** | <img width="500" alt="Wireframe Sobre Mim Desktop" src="https://github.com/user-attachments/assets/a096e626-9389-4cb9-b3d2-f916d86c16c5" /> | <img width="300" alt="Wireframe Sobre Mim Mobile" src="https://github.com/user-attachments/assets/ffde905d-86f7-4039-a160-5e049763bd23" /> |
+| **Contato** | <img width="500" alt="Wireframe Home Desktop" src="https://github.com/user-attachments/assets/5fb32d9e-0f1c-45a7-95f8-99f157ca36b4" /> | <img width="300" alt="Wireframe Home Mobile" src="https://github.com/user-attachments/assets/072a363b-bf98-48d7-9669-fc998f1190dd" /> |
 
-## Como abrir
 
-No VS Code, instale a extensão **Live Server** se ainda não tiver. Depois:
 
-1. Abra o arquivo `index.html`.
-2. Clique com o botão direito dentro do arquivo.
-3. Escolha **Open with Live Server**.
+---
 
-O Live Server é necessário porque o navegador precisa buscar os dados do arquivo JSON.
+## 🛠️ Tecnologias Previstas
+As seguintes tecnologias e ferramentas estão planeadas para a implementação do projeto nas próximas sprints:
+- **Lupa / Marcação:** HTML5 estruturado com foco em semântica e acessibilidade.
+- **Estilização:** CSS3 (utilizando variáveis, Flexbox e Grid para garantir a responsividade em dispositivos móveis).
+- **Linguagem de Comportamento:** JavaScript (Vanilla) para manipulação do DOM, alternância de idioma e carregamento dinâmico de conteúdo e traduções através de ficheiro **JSON**.
+- **Design / Prototipagem:** Figma.
+- **Controle de Versão:** Git e GitHub.
 
-## Onde mudar as informações
+---
 
-As informações ficam em `data/portfolio.json`. Para editar uma informação, mude o texto entre aspas e mantenha a vírgula no final da linha quando necessário. Por exemplo:
+## 🗂️ Estrutura Inicial do Site
+A organização de diretórios planeada para o projeto segue o padrão modular:
 
-```json
-"area": "Estudante de Ciência da Computação",
-"formacao": "Ciência da Computação — 2º período"
-```
+```text
+portifolio-profissional/
+│
+├── index.html          # Página principal (Home / Seções)
+├── css/
+│   └── style.css       # Estilização global e tema Brick Game
+├── js/
+│   └── main.js         # Lógica de navegação e carregamento do JSON
+├── data/
+│   └── dados.json      # Base de dados estruturada para projetos e experiências
+└── assets/
+    └── images/         # Imagens, GIFs e capturas de tela dos projetos
 
-Não apague as aspas, as chaves `{ }` ou os colchetes `[ ]`: eles fazem parte do formato JSON.
+👩‍💻 Autora
 
-As listas `projetos`, `experiencias` e `redesSociais` ficam entre colchetes. Projetos e experiências são gerados a partir desses dados; podem ser acrescentados seguindo os campos dos objetos existentes. Os campos terminados em `En` contêm as versões em inglês.
+Stefânia Alves Martins
 
-## Como as partes se conectam
-
-- `index.html` tem os títulos, as seções e os lugares onde o conteúdo aparece.
-- `styles.css` define a identidade visual e adapta o layout para diferentes tamanhos de tela.
-- `script.js` busca o JSON, cria as listas e prepara o formulário de contato.
-- `data/portfolio.json` guarda os dados pessoais e as listas.
-- `wireframes/` contém o rascunho da página de perfil para computador.
-
-## Arquivos
-
-- `index.html`: conteúdo e seções da página.
-- `styles.css`: cores, tamanhos e organização visual.
-- `script.js`: lê o JSON e coloca os dados na página.
-- `data/portfolio.json`: textos, projetos e experiências.
-- `images/foto-perfil.jpeg`: foto de referência guardada no projeto.
-- `wireframes/`: material de planejamento da interface.
-
-## Sprint 1
-
-- Planejamento das seções: apresentação, perfil, projetos, experiências e contato.
-- Elaboração de um wireframe para computador.
-- Implementação do protótipo inicial e da navegação entre seções.
+Estudante de Ciência da Computação na PUC Minas (2º período) e entusiasta da tecnologia, busco aprimorar continuamente minhas habilidades. Meu objetivo é projetar e desenvolver soluções tecnológicas eficientes, para assim então fazer diferença no que realmente importa.

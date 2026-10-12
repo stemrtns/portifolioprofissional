@@ -1,4 +1,5 @@
 var dadosPortfolio;
+var idiomaAtual = "pt";
 window.history.scrollRestoration = "manual";
 var telasDoJogo = ["inicio", "sobre", "projetos", "experiencias", "contato"];
 var telaAtual = "inicio";
@@ -10,12 +11,105 @@ var pontosJogo = 0;
 var audioJogo;
 var missaoPausadaEnergia = false;
 
+function texto(chave) {
+  var idioma = dadosPortfolio && dadosPortfolio.interface
+    ? dadosPortfolio.interface[idiomaAtual]
+    : null;
+  return idioma && idioma[chave] ? idioma[chave] : chave;
+}
+
+function aplicarIdioma() {
+  document.documentElement.lang = idiomaAtual === "en" ? "en" : "pt-BR";
+  document.title = "BRICK / " + texto("site.brand") + " — Stefânia Alves Martins";
+
+  document.querySelectorAll("[data-i18n]").forEach(function (elemento) {
+    elemento.textContent = texto(elemento.getAttribute("data-i18n"));
+  });
+  document.querySelectorAll("[data-i18n-aria-label]").forEach(function (elemento) {
+    elemento.setAttribute(
+      "aria-label",
+      texto(elemento.getAttribute("data-i18n-aria-label"))
+    );
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(function (elemento) {
+    elemento.setAttribute(
+      "placeholder",
+      texto(elemento.getAttribute("data-i18n-placeholder"))
+    );
+  });
+  document.querySelectorAll("[data-i18n-value]").forEach(function (elemento) {
+    elemento.value = texto(elemento.getAttribute("data-i18n-value"));
+  });
+  document.querySelectorAll("[data-i18n-alt]").forEach(function (elemento) {
+    elemento.setAttribute("alt", texto(elemento.getAttribute("data-i18n-alt")));
+  });
+  document.querySelectorAll("[data-idioma]").forEach(function (botao) {
+    var ativo = botao.getAttribute("data-idioma") === idiomaAtual;
+    botao.classList.toggle("ativo", ativo);
+    botao.setAttribute("aria-pressed", String(ativo));
+  });
+
+  if (dadosPortfolio) {
+    renderizarDadosDoPortfolio();
+  }
+  atualizarRotulosControles();
+  atualizarEstadoVisivelDoJogo();
+}
+
+function atualizarRotulosControles() {
+  document.getElementById("botao-power").setAttribute(
+    "aria-label",
+    texto(jogoLigado ? "controls.powerOn" : "controls.powerOff")
+  );
+  document.getElementById("botao-start").setAttribute(
+    "aria-label",
+    texto(estadoMissao === "ativa" ? "controls.pause" :
+      estadoMissao === "concluida" ? "controls.startNew" : "controls.start")
+  );
+  document.getElementById("botao-sound").setAttribute(
+    "aria-label",
+    texto(somLigado ? "controls.soundOff" : "controls.soundOn")
+  );
+}
+
+function atualizarEstadoVisivelDoJogo() {
+  if (!jogoLigado && estadoMissao !== "ativa") {
+    atualizarPainelJogo(texto("game.off"));
+  } else if (estadoMissao === "parada") {
+    atualizarPainelJogo(
+      texto("game.screen").replace(
+        "{screen}",
+        String(telasDoJogo.indexOf(telaAtual) + 1).padStart(2, "0")
+      )
+    );
+  } else if (estadoMissao === "pausada") {
+    atualizarPainelJogo(texto("game.paused"));
+  } else if (estadoMissao === "concluida") {
+    atualizarPainelJogo(texto("game.complete"));
+  } else {
+    atualizarPainelJogo(texto("game.mission"));
+  }
+}
+
+document.querySelectorAll("[data-idioma]").forEach(function (botao) {
+  botao.addEventListener("click", function () {
+    idiomaAtual = botao.getAttribute("data-idioma");
+    if (idiomaAtual !== "pt" && idiomaAtual !== "en") {
+      idiomaAtual = "pt";
+    }
+    aplicarIdioma();
+  });
+});
+
 function atualizarPainelJogo(mensagem) {
   document.getElementById("status-jogo").textContent = mensagem;
   document.getElementById("pontuacao-jogo").textContent =
-    "PONTOS " +
+    texto("game.score") +
+    " " +
     String(pontosJogo).padStart(4, "0") +
-    " · TELAS " +
+    " · " +
+    texto("game.screens") +
+    " " +
     telasVisitadas.length +
     "/" +
     telasDoJogo.length;
@@ -66,17 +160,20 @@ function visitarTelaDaMissao(id) {
     );
     tocarEfeito(880);
     atualizarPainelJogo(
-      "MISSÃO COMPLETA! Você explorou as 5 telas e ganhou 500 pontos."
+      texto("game.complete")
     );
     return;
   }
 
   atualizarPainelJogo(
-    "FASE " +
-      (telasVisitadas.length) +
-      "/5 CONCLUÍDA · +" +
-      "100 PONTOS · " +
-      document.querySelector('.link-nav[href="#' + id + '"]').textContent.trim()
+    texto("game.phase")
+      .replace("{phase}", String(telasVisitadas.length))
+      .replace(
+        "{screen}",
+        document.querySelector(
+          '.link-nav[href="#' + id + '"] [data-i18n]'
+        ).textContent
+      )
   );
 }
 
@@ -112,19 +209,20 @@ function definirEstadoMissao(estado, mensagem) {
     : "START";
   botaoStart.setAttribute(
     "aria-label",
-    ativa ? "Pausar missão" : "Iniciar ou continuar missão"
+    texto(ativa ? "controls.pause" :
+      estado === "concluida" ? "controls.startNew" : "controls.start")
   );
   atualizarPainelJogo(mensagem);
 }
 
 function iniciarOuPausarMissao() {
   if (!jogoLigado) {
-    atualizarPainelJogo("Ligue a tela antes de iniciar a missão.");
+    atualizarPainelJogo(texto("game.startRequired"));
     return;
   }
 
   if (estadoMissao === "ativa") {
-    definirEstadoMissao("pausada", "MISSÃO PAUSADA · pressione START para continuar.");
+    definirEstadoMissao("pausada", texto("game.paused"));
     tocarEfeito(330);
     return;
   }
@@ -137,7 +235,7 @@ function iniciarOuPausarMissao() {
 
   definirEstadoMissao(
     "ativa",
-    "MISSÃO: explore as 5 telas · cada tela nova vale 100 pontos."
+    texto("game.mission")
   );
   tocarEfeito(520);
   visitarTelaDaMissao(telaAtual);
@@ -145,7 +243,7 @@ function iniciarOuPausarMissao() {
 
 function irParaTelaVizinha(direcao) {
   if (!jogoLigado) {
-    atualizarPainelJogo("Ligue a tela para continuar jogando.");
+    atualizarPainelJogo(texto("game.powerRequired"));
     return;
   }
 
@@ -153,7 +251,7 @@ function irParaTelaVizinha(direcao) {
   var proximoIndice = indice + direcao;
   if (proximoIndice < 0 || proximoIndice >= telasDoJogo.length) {
     atualizarPainelJogo(
-      direcao < 0 ? "VOCÊ ESTÁ NA PRIMEIRA TELA." : "VOCÊ CHEGOU À ÚLTIMA TELA."
+      direcao < 0 ? texto("game.first") : texto("game.last")
     );
     tocarEfeito(220);
     return;
@@ -171,7 +269,7 @@ function moverDirecional(direcao) {
     return;
   }
   if (!jogoLigado) {
-    atualizarPainelJogo("Ligue a tela para continuar jogando.");
+    atualizarPainelJogo(texto("game.powerRequired"));
     return;
   }
 
@@ -196,7 +294,7 @@ function alternarEnergia() {
     : "OFF";
   botaoPower.setAttribute(
     "aria-label",
-    jogoLigado ? "Desligar tela" : "Ligar tela"
+    texto(jogoLigado ? "controls.powerOn" : "controls.powerOff")
   );
   atualizarControleDirecional();
 
@@ -205,10 +303,10 @@ function alternarEnergia() {
       missaoPausadaEnergia = true;
       definirEstadoMissao(
         "pausada",
-        "TELA DESLIGADA · missão pausada; pressione ON para voltar."
+        texto("game.pausedPower")
       );
     } else {
-      atualizarPainelJogo("TELA DESLIGADA · pressione ON para voltar.");
+      atualizarPainelJogo(texto("game.screenOff"));
     }
     tocarEfeito(260);
     return;
@@ -219,13 +317,13 @@ function alternarEnergia() {
     missaoPausadaEnergia = false;
     definirEstadoMissao(
       "ativa",
-      "TELA LIGADA · sua missão continua. Explore as próximas telas."
+      texto("game.resume")
     );
     visitarTelaDaMissao(telaAtual);
   } else if (estadoMissao === "pausada") {
-    atualizarPainelJogo("TELA LIGADA · a missão continua pausada; pressione START.");
+    atualizarPainelJogo(texto("game.paused"));
   } else {
-    atualizarPainelJogo("TELA LIGADA · pressione START para jogar.");
+    atualizarPainelJogo(texto("game.ready"));
   }
 }
 
@@ -233,7 +331,7 @@ function alternarSom() {
   if (!somLigado) {
     var ConstrutorAudio = window.AudioContext || window.webkitAudioContext;
     if (!ConstrutorAudio) {
-      atualizarPainelJogo("SOM INDISPONÍVEL NESTE NAVEGADOR.");
+      atualizarPainelJogo(texto("game.soundUnavailable"));
       return;
     }
     audioJogo = new ConstrutorAudio();
@@ -241,10 +339,10 @@ function alternarSom() {
     document.getElementById("botao-sound").setAttribute("aria-pressed", "true");
     document.getElementById("botao-sound").setAttribute(
       "aria-label",
-      "Desativar efeitos sonoros"
+      texto("controls.soundOff")
     );
     document.querySelector("#botao-sound b").textContent = "♫";
-    atualizarPainelJogo("EFEITOS SONOROS LIGADOS.");
+    atualizarPainelJogo(texto("game.soundOn"));
     tocarEfeito(660);
     return;
   }
@@ -253,9 +351,9 @@ function alternarSom() {
   document.getElementById("botao-sound").setAttribute("aria-pressed", "false");
   document.getElementById("botao-sound").setAttribute(
     "aria-label",
-    "Ativar efeitos sonoros"
+    texto("controls.soundOn")
   );
-  atualizarPainelJogo("EFEITOS SONOROS DESLIGADOS.");
+  atualizarPainelJogo(texto("game.soundOff"));
 }
 
 function reiniciarJogo() {
@@ -271,7 +369,7 @@ function reiniciarJogo() {
     .setAttribute("aria-pressed", String(jogoLigado));
   document.getElementById("botao-power").setAttribute(
     "aria-label",
-    jogoLigado ? "Desligar tela" : "Ligar tela"
+    texto(jogoLigado ? "controls.powerOn" : "controls.powerOff")
   );
   document.querySelector("#botao-power b").textContent = jogoLigado
     ? "ON"
@@ -279,14 +377,14 @@ function reiniciarJogo() {
   document.getElementById("botao-sound").setAttribute("aria-pressed", "false");
   document.getElementById("botao-sound").setAttribute(
     "aria-label",
-    "Ativar efeitos sonoros"
+    texto("controls.soundOn")
   );
   document.querySelector("#botao-sound b").textContent = "♫";
   document.querySelector(".console").classList.remove("missao-ativa");
-  definirEstadoMissao("parada", "JOGO REINICIADO · pressione START para uma nova missão.");
+  definirEstadoMissao("parada", texto("game.reset"));
   selecionarTela("inicio", true);
   if (!jogoLigado) {
-    atualizarPainelJogo("TELA DESLIGADA · pressione ON para ligar o Brick Game.");
+    atualizarPainelJogo(texto("game.off"));
   }
   atualizarControleDirecional();
 }
@@ -309,9 +407,9 @@ function desenharProjetos(projetos) {
   lista.replaceChildren();
 
   if (projetos.length === 0) {
-    lista.textContent = "Em breve, novos projetos serão adicionados.";
+    lista.textContent = texto("project.empty");
     resumo.textContent = "0 projetos";
-    anos.textContent = "■ A LINHA DO TEMPO COMEÇA AQUI";
+    anos.textContent = "■ " + texto("project.timelineStart");
     return;
   }
 
@@ -321,7 +419,7 @@ function desenharProjetos(projetos) {
   var anosUnicos = [];
 
   projetosOrdenados.forEach(function (projeto, indice) {
-    var ano = projeto.ano || "Em andamento";
+    var ano = projeto.ano || texto("project.year");
     if (anosUnicos.indexOf(ano) === -1) {
       anosUnicos.push(ano);
     }
@@ -329,7 +427,7 @@ function desenharProjetos(projetos) {
     var artigo = criarElemento("article", "cartao-projeto");
     var cabecalho = criarElemento("div", "cabecalho-projeto");
     cabecalho.append(
-      criarElemento("span", "rotulo-mono", "PROJETO " + String(indice + 1).padStart(2, "0")),
+      criarElemento("span", "rotulo-mono", texto("project.label") + " " + String(indice + 1).padStart(2, "0")),
       criarElemento("span", "periodo-projeto", projeto.periodo)
     );
 
@@ -339,12 +437,12 @@ function desenharProjetos(projetos) {
     for (var bloco = 0; bloco < 6; bloco += 1) {
       blocos.appendChild(document.createElement("i"));
     }
-    arte.append(blocos, criarElemento("span", "", "PROJETO EM CONSTRUÇÃO"));
+    arte.append(blocos, criarElemento("span", "", texto("project.building")));
 
     var titulo = criarElemento("h3", "", projeto.nome);
     var descricao = criarElemento("p", "descricao-projeto", projeto.descricao);
     var tecnologias = criarElemento("div", "tecnologias-projeto");
-    tecnologias.appendChild(criarElemento("small", "", "TECNOLOGIAS"));
+    tecnologias.appendChild(criarElemento("small", "", texto("project.technologies")));
     var listaTecnologias = criarElemento("div", "etiquetas-tecnologia");
     projeto.tecnologias.forEach(function (tecnologia) {
       listaTecnologias.appendChild(criarElemento("span", "", tecnologia));
@@ -352,7 +450,7 @@ function desenharProjetos(projetos) {
     tecnologias.appendChild(listaTecnologias);
 
     var rodape = criarElemento("div", "rodape-projeto");
-    rodape.appendChild(criarElemento("span", "", "PROJETO ACADÊMICO"));
+    rodape.appendChild(criarElemento("span", "", texto("project.academic")));
     rodape.appendChild(criarElemento("span", "seta-projeto", "↗"));
 
     artigo.append(cabecalho, arte, titulo, descricao, tecnologias, rodape);
@@ -360,10 +458,13 @@ function desenharProjetos(projetos) {
   });
 
   anos.replaceChildren();
-  anos.appendChild(criarElemento("span", "", "■ " + anosUnicos.join("   →   ")));
+  anos.appendChild(
+    criarElemento("span", "", "■ " + anosUnicos.join("   →   "))
+  );
   resumo.textContent =
     projetosOrdenados.length +
-    (projetosOrdenados.length === 1 ? " projeto" : " projetos");
+    " " +
+    texto(projetosOrdenados.length === 1 ? "project.countOne" : "project.countMany");
 }
 
 function desenharExperiencias(experiencias) {
@@ -371,8 +472,7 @@ function desenharExperiencias(experiencias) {
   lista.replaceChildren();
 
   if (experiencias.length === 0) {
-    lista.textContent =
-      "Novas experiências acadêmicas e profissionais serão adicionadas aqui.";
+    lista.textContent = texto("experience.empty");
     return;
   }
 
@@ -396,10 +496,17 @@ function desenharExperiencias(experiencias) {
 }
 
 function iconeRede(nome) {
-  if (nome.toLowerCase() === "linkedin") {
+  var nomeNormalizado = nome.toLowerCase();
+  if (nomeNormalizado === "linkedin") {
     return '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.3 9h3.4v11H3.3V9Zm5.5 0H12v1.5h.1A3.4 3.4 0 0 1 15.2 9c3.3 0 3.9 2.2 3.9 5v6h-3.4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V20H8.8V9Z"/></svg>';
   }
-  return '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.2-.2-4.5-1.1-4.5-5a3.9 3.9 0 0 1 1-2.7c-.1-.2-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.7 9.7 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.5.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.8-4.5 5 .4.3.7.9.7 1.8V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>';
+  if (nomeNormalizado === "whatsapp") {
+    return '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.4-4.7A8.5 8.5 0 1 1 20.5 11.8Z"/><path d="M8.5 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.9c.1.2 0 .4-.1.6l-.6.7c-.2.2-.2.4 0 .6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.3.3.3.5 0 .4-.2 1-.6 1.3-.5.5-1.2.7-2 .5-1-.2-2.3-.8-3.5-1.9-1.5-1.3-2.5-3-2.7-4-.2-.8.1-1.6.5-2.1Z"/></svg>';
+  }
+  if (nomeNormalizado === "github") {
+    return '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.2-.2-4.5-1.1-4.5-5a3.9 3.9 0 0 1 1-2.7c-.1-.2-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.7 9.7 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.5.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.8-4.5 5 .4.3.7.9.7 1.8V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>';
+  }
+  return "";
 }
 
 function desenharRedes(redes) {
@@ -412,25 +519,106 @@ function desenharRedes(redes) {
     link.href = rede.link;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.setAttribute("aria-label", "Abrir perfil " + rede.nome);
+    link.setAttribute(
+      "aria-label",
+      rede.nome.toLowerCase() === "whatsapp"
+        ? texto("contact.whatsappAria")
+        : texto("contact.profileAria") + " " + rede.nome
+    );
 
     var icone = criarElemento("span", "icone-canal");
     icone.setAttribute("aria-hidden", "true");
     icone.innerHTML = iconeRede(rede.nome);
-    var texto = criarElemento("span", "texto-canal");
-    texto.append(
+    var blocoTexto = criarElemento("span", "texto-canal");
+    blocoTexto.append(
       criarElemento("strong", "", rede.nome),
       criarElemento(
         "small",
         "",
-        new URL(rede.link).hostname.replace(/^www\./, "") +
-          decodeURIComponent(new URL(rede.link).pathname).replace(/\/$/, "")
+        rede.descricao ||
+          new URL(rede.link).hostname.replace(/^www\./, "") +
+            decodeURIComponent(new URL(rede.link).pathname).replace(/\/$/, "")
       ),
-      criarElemento("b", "", "Visitar perfil ↗")
+      criarElemento(
+        "b",
+        "",
+        rede.acao ||
+          (rede.nome.toLowerCase() === "whatsapp"
+            ? texto("contact.whatsappAction")
+            : texto("contact.linkedinAction"))
+      )
     );
-    link.append(icone, texto);
+    link.append(icone, blocoTexto);
     lista.appendChild(link);
   });
+}
+
+function renderizarDadosDoPortfolio() {
+  var perfil = dadosPortfolio.perfil;
+  var contato = dadosPortfolio.contato;
+  var ingles = idiomaAtual === "en";
+
+  document.getElementById("nome-curto").textContent =
+    perfil.nome.split(" ")[0];
+  document.getElementById("nome-sobre").textContent = perfil.nome;
+  document.getElementById("area-destaque").textContent =
+    ingles ? perfil.titulo_en : perfil.titulo_pt;
+  document.getElementById("introducao").textContent =
+    ingles ? perfil.descricao_en : perfil.descricao_pt;
+  document.getElementById("formacao").textContent =
+    (ingles ? perfil.formacao_en : perfil.formacao)
+      .replace(/ - PUC Minas$/, "")
+      .replace(/ · PUC Minas$/, "") +
+    " · PUC Minas";
+  document.getElementById("area-sobre").textContent =
+    ingles ? perfil.area_estudo_en : perfil.area_estudo;
+  document.getElementById("sobre-texto").textContent =
+    ingles ? perfil.sobre_en : perfil.sobre_pt;
+  document.getElementById("interesses").textContent =
+    ingles ? perfil.interesses_en : perfil.interesses;
+  document.getElementById("objetivo").textContent =
+    ingles ? perfil.objetivo_en : perfil.objetivo;
+
+  var cartaoEmail = document.getElementById("cartao-email");
+  cartaoEmail.href = "mailto:" + contato.email;
+  document.getElementById("email-cartao").textContent = contato.email;
+  desenharProjetos(
+    dadosPortfolio.projetos.map(function (projeto) {
+      return {
+        ano: projeto.ano,
+        nome: ingles ? projeto.titulo_en || projeto.titulo : projeto.titulo,
+        periodo: projeto.ano,
+        descricao: ingles ? projeto.descricao_en || projeto.descricao : projeto.descricao,
+        tecnologias: projeto.tecnologias
+      };
+    })
+  );
+  desenharExperiencias(
+    dadosPortfolio.experiencias.map(function (experiencia) {
+      return {
+        categoria: ingles ? experiencia.tipo_en || experiencia.tipo : experiencia.tipo,
+        periodo: ingles ? experiencia.periodo_en || experiencia.periodo : experiencia.periodo,
+        instituicao: experiencia.empresa,
+        cargo: ingles ? experiencia.cargo_en || experiencia.cargo : experiencia.cargo,
+        descricao: ingles
+          ? experiencia.descricao_en || experiencia.descricao
+          : experiencia.descricao
+      };
+    })
+  );
+  desenharRedes([
+    {
+      nome: "WhatsApp",
+      link: "https://wa.me/" + contato.whatsapp.replace(/\D/g, ""),
+      descricao: contato.whatsapp,
+      acao: texto("contact.whatsappAction")
+    },
+    {
+      nome: "LinkedIn",
+      link: contato.linkedin,
+      acao: texto("contact.linkedinAction")
+    }
+  ]);
 }
 
 function selecionarTela(id, adicionarAoHistorico) {
@@ -463,12 +651,13 @@ function selecionarTela(id, adicionarAoHistorico) {
 
   if (estadoMissao === "parada") {
     atualizarPainelJogo(
-      "TELA " +
-        (telasDoJogo.indexOf(id) + 1) +
-        "/5 · pressione START para iniciar a missão."
+      texto("game.screen").replace(
+        "{screen}",
+        String(telasDoJogo.indexOf(id) + 1).padStart(2, "0")
+      )
     );
   } else if (estadoMissao === "pausada") {
-    atualizarPainelJogo("MISSÃO PAUSADA · pressione START para continuar.");
+    atualizarPainelJogo(texto("game.paused"));
   }
   atualizarControleDirecional();
   visitarTelaDaMissao(id);
@@ -545,9 +734,6 @@ document.addEventListener("keydown", function (evento) {
 
 configurarNavegacao();
 atualizarControleDirecional();
-atualizarPainelJogo(
-  "TELA DESLIGADA · pressione ON para ligar o Brick Game."
-);
 
 document.getElementById("formulario-contato").addEventListener("submit", function (evento) {
   evento.preventDefault();
@@ -563,14 +749,14 @@ document.getElementById("formulario-contato").addEventListener("submit", functio
   }
 
   var corpo = "De: " + nome + " <" + email + ">\n\n" + mensagem;
-  var destinatario = dadosPortfolio.email;
+  var destinatario = dadosPortfolio.contato.email;
   var linkEnvio =
     "mailto:" + destinatario +
     "?subject=" + encodeURIComponent(formulario.elements.assunto.value) +
     "&body=" + encodeURIComponent(corpo);
 
   document.getElementById("status-contato").textContent =
-    "Seu aplicativo de e-mail será aberto para concluir o envio.";
+    texto("contact.mailtoStatus");
   window.location.href = linkEnvio;
 });
 
@@ -583,30 +769,12 @@ fetch("data/portfolio.json")
   })
   .then(function (dados) {
     dadosPortfolio = dados;
-    document.getElementById("nome-curto").textContent = dados.nome.split(" ")[0];
-    document.getElementById("nome-sobre").textContent = dados.nome;
-    document.getElementById("area-destaque").textContent = dados.area;
-    document.getElementById("introducao").textContent = dados.introducao;
-    document.getElementById("formacao").textContent =
-      dados.formacao + " · PUC Minas";
-    document.getElementById("area-sobre").textContent =
-      "Ciência da Computação";
-    document.getElementById("sobre-texto").textContent = dados.sobre;
-    document.getElementById("sobre-texto-en").textContent = dados.sobreEn;
-    document.getElementById("interesses").textContent = dados.interesses;
-    document.getElementById("objetivo").textContent = dados.objetivo;
-
-    var cartaoEmail = document.getElementById("cartao-email");
-    cartaoEmail.href = "mailto:" + dados.email;
-    document.getElementById("email-cartao").textContent = dados.email;
-    desenharProjetos(dados.projetos);
-    desenharExperiencias(dados.experiencias);
-    desenharRedes(dados.redesSociais);
+    aplicarIdioma();
   })
   .catch(function (erro) {
     console.error("Erro ao carregar o arquivo JSON:", erro);
     document.getElementById("lista-projetos").textContent =
-      "Não foi possível carregar os dados. Abra o site usando Live Server.";
+      texto("data.error");
     document.getElementById("lista-experiencias").textContent =
-      "Não foi possível carregar os dados. Abra o site usando Live Server.";
+      texto("data.error");
   });

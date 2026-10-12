@@ -11,19 +11,25 @@
 <body>
   <div class="console desligado">
     <header class="cabecalho">
-      <a class="marca" href="#inicio" aria-label="BRICK, voltar ao início">
-        <strong>BRICK <span>/</span> PORTFÓLIO</strong>
-        <small>STEFÂNIA · CIÊNCIA DA COMPUTAÇÃO</small>
+      <a class="marca" href="#inicio" aria-label="BRICK, voltar ao início" data-i18n-aria-label="controls.brandHome">
+        <strong>BRICK <span class="marca-separador">/</span> <span data-i18n="site.brand">PORTFÓLIO</span></strong>
+        <small data-i18n="site.subtitle">STEFÂNIA · CIÊNCIA DA COMPUTAÇÃO</small>
       </a>
-      <span class="status-site"><i></i> PORTFÓLIO PESSOAL</span>
+      <div class="cabecalho-acoes">
+        <div class="seletor-idioma" role="group" aria-label="Selecionar idioma" data-i18n-aria-label="language.label">
+          <button type="button" class="botao-idioma ativo" data-idioma="pt" aria-pressed="true">PT</button>
+          <button type="button" class="botao-idioma" data-idioma="en" aria-pressed="false">EN</button>
+        </div>
+        <span class="status-site"><i></i> <span data-i18n="site.status">PORTFÓLIO PESSOAL</span></span>
+      </div>
     </header>
 
-    <nav class="navegacao" aria-label="Navegação principal">
-      <a class="link-nav ativo" href="#inicio" aria-current="page"><span>■</span> Início</a>
-      <a class="link-nav" href="#sobre"><span>■</span> Sobre mim</a>
-      <a class="link-nav" href="#projetos"><span>■</span> Projetos</a>
-      <a class="link-nav" href="#experiencias"><span>■</span> Experiências</a>
-      <a class="link-nav" href="#contato"><span>■</span> Contato</a>
+    <nav class="navegacao" aria-label="Navegação principal" data-i18n-aria-label="nav.label">
+      <a class="link-nav ativo" href="#inicio" aria-current="page"><span>■</span><span data-i18n="nav.home">Início</span></a>
+      <a class="link-nav" href="#sobre"><span>■</span><span data-i18n="nav.about">Sobre mim</span></a>
+      <a class="link-nav" href="#projetos"><span>■</span><span data-i18n="nav.projects">Projetos</span></a>
+      <a class="link-nav" href="#experiencias"><span>■</span><span data-i18n="nav.experience">Experiências</span></a>
+      <a class="link-nav" href="#contato"><span>■</span><span data-i18n="nav.contact">Contato</span></a>
     </nav>
 
     <main class="tela">
@@ -31,7 +37,7 @@
         <div class="moldura-titulo"><span>SUPER</span></div>
         <div class="conteudo-tela">
           <div class="metadados-tela">
-            <span>01 / 05 · INÍCIO</span>
+            <span data-i18n="screen.home">01 / 05 · INÍCIO</span>
             <span class="dados-console">BRICK <b>01</b></span>
             <div class="mosaico mosaico-pequeno" aria-hidden="true">
               <i></i><i></i><i></i><i></i><i></i><i></i>
@@ -39,30 +45,28 @@
           </div>
 
           <section class="boas-vindas" aria-labelledby="titulo-inicio">
-            <h1 id="titulo-inicio">Olá, sou <span id="nome-curto">Stefânia</span>.</h1>
-            <p class="intro-curta">Bem-vinda ao meu portfólio. Escolha uma seção para conhecer meu perfil, meus projetos e minhas experiências.</p>
+            <h1 id="titulo-inicio"><span data-i18n="home.greeting">Olá, sou</span> <span id="nome-curto">Stefânia</span>.</h1>
+            <p class="intro-curta" data-i18n="home.intro">Bem-vinda ao meu portfólio. Escolha uma seção para conhecer meu perfil, meus projetos e minhas experiências.</p>
             <div class="linha-tracejada"></div>
             <div class="hero-conteudo">
               <div>
                 <h2 id="area-destaque">Estudante de Ciência da Computação</h2>
                 <p id="introducao">Sou estudante de Ciência da Computação, atualmente no segundo período, e estou construindo minha trajetória na área de tecnologia.</p>
-                <a class="botao-pixel" href="#sobre">Conhecer meu perfil <span aria-hidden="true">→</span></a>
+                <a class="botao-pixel" href="#sobre"><span data-i18n="home.button">Conhecer meu perfil</span> <span aria-hidden="true">→</span></a>
               </div>
-              <div class="arte-blocos" role="img" aria-label="Blocos formando uma pequena construção">
-                <div class="mosaico mosaico-grande" aria-hidden="true">
-                  <i></i><i></i><i></i><i></i><i></i><i></i>
-                </div>
-                <small>UM PERFIL, MUITAS PEÇAS.</small>
-              </div>
+              <figure class="arte-blocos foto-perfil">
+                <img src="images/foto-perfil-fundo-desfocado.jpeg" alt="Stefânia sorrindo em uma foto ao ar livre" data-i18n-alt="home.photoAlt">
+                <figcaption><span aria-hidden="true">■</span> <span data-i18n="home.caption">UM PERFIL, MUITAS PEÇAS.</span></figcaption>
+              </figure>
             </div>
           </section>
 
-          <div class="rotulo-secoes"><span>■</span> ESCOLHA UMA SEÇÃO <span>■</span></div>
+          <div class="rotulo-secoes"><span>■</span> <span data-i18n="home.choose">ESCOLHA UMA SEÇÃO</span> <span>■</span></div>
           <div class="atalhos-secoes">
-            <a href="#sobre"><span class="numero-secao">02</span><span><strong>Sobre mim</strong><small>Formação, interesses e objetivos.</small></span><b>↗</b></a>
-            <a href="#projetos"><span class="numero-secao">03</span><span><strong>Projetos</strong><small>Minha linha do tempo de projetos e tecnologias.</small></span><b>↗</b></a>
-            <a href="#experiencias"><span class="numero-secao">04</span><span><strong>Experiências</strong><small>Atividades, participações e aprendizados.</small></span><b>↗</b></a>
-            <a href="#contato"><span class="numero-secao">05</span><span><strong>Contato</strong><small>Canais de contato e formulário de mensagem.</small></span><b>↗</b></a>
+            <a href="#sobre"><span class="numero-secao">02</span><span><strong data-i18n="nav.about">Sobre mim</strong><small data-i18n="home.aboutSummary">Formação, interesses e objetivos.</small></span><b>↗</b></a>
+            <a href="#projetos"><span class="numero-secao">03</span><span><strong data-i18n="nav.projects">Projetos</strong><small data-i18n="home.projectsSummary">Minha linha do tempo de projetos e tecnologias.</small></span><b>↗</b></a>
+            <a href="#experiencias"><span class="numero-secao">04</span><span><strong data-i18n="nav.experience">Experiências</strong><small data-i18n="home.experienceSummary">Atividades, participações e aprendizados.</small></span><b>↗</b></a>
+            <a href="#contato"><span class="numero-secao">05</span><span><strong data-i18n="nav.contact">Contato</strong><small data-i18n="home.contactSummary">Canais de contato e formulário de mensagem.</small></span><b>↗</b></a>
           </div>
         </div>
       </section>
@@ -70,35 +74,30 @@
       <section id="sobre" class="painel" hidden>
         <div class="conteudo-tela">
           <div class="metadados-tela">
-            <span>02 / 05 · SOBRE MIM</span>
+            <span data-i18n="screen.about">02 / 05 · SOBRE MIM</span>
             <span class="dados-console">BRICK <b>02</b></span>
             <div class="mosaico mosaico-pequeno" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
           <div class="cabecalho-secao">
-            <h2>Sobre mim</h2>
-            <p>Minha formação, o que me interessa e os próximos passos que quero construir.</p>
+            <h2 data-i18n="nav.about">Sobre mim</h2>
+            <p data-i18n="about.intro">Minha formação, o que me interessa e os próximos passos que quero construir.</p>
           </div>
           <div class="linha-tracejada"></div>
           <div class="resumo-perfil">
-            <div><small>PERFIL PESSOAL</small><strong id="nome-sobre">Stefânia Alves Martins</strong></div>
-            <div><small>FORMAÇÃO</small><span id="formacao">Ciência da Computação (em curso, 2º período) · PUC Minas</span></div>
-            <div><small>ÁREA DE ESTUDO</small><span id="area-sobre">Ciência da Computação</span></div>
+            <div><small data-i18n="about.profile">PERFIL PESSOAL</small><strong id="nome-sobre">Stefânia Alves Martins</strong></div>
+            <div><small data-i18n="about.education">FORMAÇÃO</small><span id="formacao">Ciência da Computação (em curso, 2º período) · PUC Minas</span></div>
+            <div><small data-i18n="about.field">ÁREA DE ESTUDO</small><span id="area-sobre">Ciência da Computação</span></div>
           </div>
           <div class="biografias">
             <article class="cartao-biografia">
-              <small>PORTUGUÊS</small>
-              <h3>Um pouco sobre mim</h3>
-              <p id="sobre-texto">Estou no início da graduação em Ciência da Computação e quero aproveitar esse período para aprender, experimentar e desenvolver novas habilidades.</p>
-            </article>
-            <article class="cartao-biografia">
-              <small>ENGLISH</small>
-              <h3>A little about me</h3>
-              <p id="sobre-texto-en">I am at the beginning of my Computer Science degree and want to use this time to learn, experiment, and develop new skills.</p>
+              <small data-i18n="about.biographyLabel">PORTUGUÊS</small>
+              <h3 data-i18n="about.biographyTitle">Um pouco sobre mim</h3>
+              <p id="sobre-texto">Sou estudante de Ciência da Computação na PUC Minas e profissional de enfermagem no Hospital Mater Dei. Quero unir essas experiências para criar soluções digitais úteis e centradas nas pessoas.</p>
             </article>
           </div>
           <div class="interesses">
-            <div><h3>Interesses</h3><p id="interesses">Desenvolvimento de software e criação de soluções digitais.</p></div>
-            <div><h3>Objetivo profissional</h3><p id="objetivo">Fortalecer minha base técnica e transformar o que aprendo em projetos práticos.</p></div>
+            <div><h3 data-i18n="about.interests">Interesses</h3><p id="interesses">Bancos de dados, engenharia de software e experiência do usuário (UX).</p></div>
+            <div><h3 data-i18n="about.goal">Objetivo profissional</h3><p id="objetivo">Construir uma carreira em desenvolvimento de software.</p></div>
           </div>
         </div>
       </section>
@@ -106,16 +105,16 @@
       <section id="projetos" class="painel" hidden>
         <div class="conteudo-tela">
           <div class="metadados-tela">
-            <span>03 / 05 · PROJETOS</span>
+            <span data-i18n="screen.projects">03 / 05 · PROJETOS</span>
             <span class="dados-console">BRICK <b>03</b></span>
             <div class="mosaico mosaico-pequeno" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
           <div class="cabecalho-secao">
-            <h2>Projetos</h2>
-            <p>Uma linha do tempo dos meus projetos, do mais antigo para o mais recente.</p>
+            <h2 data-i18n="nav.projects">Projetos</h2>
+            <p data-i18n="projects.intro">Uma linha do tempo dos meus projetos, do mais antigo para o mais recente.</p>
           </div>
           <div class="linha-tracejada"></div>
-          <div class="resumo-timeline"><span id="anos-projetos">■ ANO 01 <b>→</b> ANO 02 <b>→</b> ANO 03</span><span id="total-projetos">1 projeto</span></div>
+          <div class="resumo-timeline"><span id="anos-projetos">■ ANO 01 <b>→</b> ANO 02 <b>→</b> ANO 03</span><span id="total-projetos">2 projetos</span></div>
           <div id="lista-projetos" class="linha-do-tempo" aria-live="polite"></div>
         </div>
       </section>
@@ -123,13 +122,13 @@
       <section id="experiencias" class="painel" hidden>
         <div class="conteudo-tela">
           <div class="metadados-tela">
-            <span>04 / 05 · EXPERIÊNCIAS</span>
+            <span data-i18n="screen.experience">04 / 05 · EXPERIÊNCIAS</span>
             <span class="dados-console">BRICK <b>04</b></span>
             <div class="mosaico mosaico-pequeno" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
           <div class="cabecalho-secao">
-            <h2>Experiências</h2>
-            <p>Espaço para minha trajetória acadêmica e profissional.</p>
+            <h2 data-i18n="nav.experience">Experiências</h2>
+            <p data-i18n="experience.intro">Espaço para minha trajetória acadêmica e profissional.</p>
           </div>
           <div class="linha-tracejada"></div>
           <div id="lista-experiencias" class="lista-experiencias" aria-live="polite"></div>
@@ -139,80 +138,81 @@
       <section id="contato" class="painel" hidden>
         <div class="conteudo-tela">
           <div class="metadados-tela">
-            <span>05 / 05 · CONTATO</span>
+            <span data-i18n="screen.contact">05 / 05 · CONTATO</span>
             <span class="dados-console">BRICK <b>05</b></span>
             <div class="mosaico mosaico-pequeno" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
           <div class="cabecalho-secao">
-            <h2>Vamos conversar?</h2>
-            <p>Escolha um dos canais abaixo ou deixe sua mensagem no formulário.</p>
+            <h2 data-i18n="contact.title">Vamos conversar?</h2>
+            <p data-i18n="contact.intro">Escolha um dos canais abaixo ou deixe sua mensagem no formulário.</p>
           </div>
           <div class="linha-tracejada"></div>
           <div class="grade-contato">
             <div>
-              <h3 class="rotulo-contato">■ CONTATO DIRETO ■</h3>
+              <h3 class="rotulo-contato" data-i18n="contact.direct">■ CONTATO DIRETO ■</h3>
               <div class="canais-contato">
                 <a class="cartao-canal" id="cartao-email" href="mailto:stefaniamrtns@gmail.com">
                   <span class="icone-canal" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg>
                   </span>
-                  <span class="texto-canal"><strong>E-mail</strong><small id="email-cartao">stefaniamrtns@gmail.com</small><b>Escrever e-mail ↗</b></span>
+                  <span class="texto-canal"><strong data-i18n="contact.emailName">E-mail</strong><small id="email-cartao">stefaniamrtns@gmail.com</small><b data-i18n="contact.emailAction">Escrever e-mail ↗</b></span>
                 </a>
                 <div id="redes-sociais-contato" class="canais-sociais"></div>
               </div>
             </div>
             <form id="formulario-contato" class="formulario-contato">
-              <h3 class="rotulo-contato">■ ENVIE UMA MENSAGEM ■</h3>
-              <label for="nome-contato">NOME</label>
-              <input id="nome-contato" name="nome" placeholder="[Seu nome]" autocomplete="name" required maxlength="100">
-              <label for="email-contato">E-MAIL</label>
-              <input id="email-contato" name="email" type="email" placeholder="[Seu e-mail]" autocomplete="email" required maxlength="254">
-              <label for="mensagem-contato">MENSAGEM</label>
-              <textarea id="mensagem-contato" name="mensagem" rows="5" placeholder="[Escreva sua mensagem]" required maxlength="2000"></textarea>
-              <input type="hidden" name="assunto" value="Contato pelo portfólio">
-              <button class="botao-pixel" type="submit">Enviar mensagem <span aria-hidden="true">→</span></button>
+              <h3 class="rotulo-contato" data-i18n="contact.send">■ ENVIE UMA MENSAGEM ■</h3>
+              <hr class="divisor-formulario" aria-hidden="true">
+              <label for="nome-contato" data-i18n="contact.name">NOME</label>
+              <input id="nome-contato" name="nome" placeholder="[Seu nome]" data-i18n-placeholder="contact.namePlaceholder" autocomplete="name" required maxlength="100">
+              <label for="email-contato" data-i18n="contact.email">E-MAIL</label>
+              <input id="email-contato" name="email" type="email" placeholder="[Seu e-mail]" data-i18n-placeholder="contact.emailPlaceholder" autocomplete="email" required maxlength="254">
+              <label for="mensagem-contato" data-i18n="contact.message">MENSAGEM</label>
+              <textarea id="mensagem-contato" name="mensagem" rows="5" placeholder="[Escreva sua mensagem]" data-i18n-placeholder="contact.messagePlaceholder" required maxlength="2000"></textarea>
+              <input type="hidden" name="assunto" value="Contato pelo portfólio" data-i18n-value="contact.subject">
+              <button class="botao-pixel" type="submit"><span data-i18n="contact.submit">Enviar mensagem</span> <span aria-hidden="true">→</span></button>
               <p id="status-contato" role="status" aria-live="polite"></p>
             </form>
           </div>
         </div>
       </section>
 
-      <button type="button" id="botao-power-prompt" class="power-prompt" aria-label="Pressionar ON e ligar o Brick Game">
+      <button type="button" id="botao-power-prompt" class="power-prompt" aria-label="Pressionar ON e ligar o Brick Game" data-i18n-aria-label="controls.powerPrompt">
         <span aria-hidden="true">◉</span>
-        <strong>PRESSIONE ON PARA INICIAR</strong>
+        <strong data-i18n="controls.powerPrompt">PRESSIONE ON PARA INICIAR</strong>
       </button>
     </main>
 
-    <footer class="rodape-console" aria-label="Controles do Brick Game">
+    <footer class="rodape-console" aria-label="Controles do Brick Game" data-i18n-aria-label="controls.label">
       <div class="controles-status">
-        <button type="button" id="botao-power" aria-pressed="false" aria-label="Ligar tela">
+        <button type="button" id="botao-power" aria-pressed="false" aria-label="Ligar tela" data-i18n-aria-label="controls.powerOff">
           <b>OFF</b><small>ON / OFF</small>
         </button>
-        <button type="button" id="botao-start" aria-pressed="false" aria-label="Iniciar missão">
+        <button type="button" id="botao-start" aria-pressed="false" aria-label="Iniciar missão" data-i18n-aria-label="controls.start">
           <b>▶</b><small>START</small>
         </button>
-        <button type="button" id="botao-sound" aria-pressed="false" aria-label="Ativar som">
+        <button type="button" id="botao-sound" aria-pressed="false" aria-label="Ativar som" data-i18n-aria-label="controls.soundOn">
           <b>♫</b><small>SOUND</small>
         </button>
-        <button type="button" id="botao-reset" aria-label="Reiniciar jogo e pontuação">
+        <button type="button" id="botao-reset" aria-label="Reiniciar jogo e pontuação" data-i18n-aria-label="controls.reset">
           <b>↺</b><small>RESET</small>
         </button>
       </div>
       <div class="rodape-jogo">
-        <div class="direcional" role="group" aria-label="Direcional: esquerda e direita trocam de tela; cima e baixo rolam a tela">
-          <button type="button" data-direcao="cima" aria-label="Rolar para o início da tela" disabled>↑</button>
-          <button type="button" data-direcao="esquerda" aria-label="Tela anterior" disabled>←</button>
-          <button type="button" data-direcao="baixo" aria-label="Rolar para o fim da tela" disabled>↓</button>
-          <button type="button" data-direcao="direita" aria-label="Próxima tela" disabled>→</button>
+        <div class="direcional" role="group" aria-label="Direcional: esquerda e direita trocam de tela; cima e baixo rolam a tela" data-i18n-aria-label="controls.directional">
+          <button type="button" data-direcao="cima" aria-label="Rolar para o início da tela" data-i18n-aria-label="controls.scrollTop" disabled>↑</button>
+          <button type="button" data-direcao="esquerda" aria-label="Tela anterior" data-i18n-aria-label="controls.previous" disabled>←</button>
+          <button type="button" data-direcao="baixo" aria-label="Rolar para o fim da tela" data-i18n-aria-label="controls.scrollBottom" disabled>↓</button>
+          <button type="button" data-direcao="direita" aria-label="Próxima tela" data-i18n-aria-label="controls.next" disabled>→</button>
         </div>
         <p class="painel-jogo">
           <strong>BRICK GAME</strong>
-          <small>Wireframe · Stefânia</small>
+          <small data-i18n="controls.subtitle">Wireframe · Stefânia</small>
           <span id="status-jogo" role="status" aria-live="polite">TELA DESLIGADA · pressione ON para ligar o Brick Game.</span>
           <span id="pontuacao-jogo">PONTOS 0000 · TELAS 0/5</span>
-          <span id="ajuda-jogo">←/→ telas · ↑/↓ rolar · ESPAÇO start/pause · M som · R reset</span>
+          <span id="ajuda-jogo" data-i18n="controls.help">←/→ telas · ↑/↓ rolar · ESPAÇO start/pause · M som · R reset</span>
         </p>
-        <a class="botao-topo" href="#inicio" aria-label="Voltar ao início">↻</a>
+        <a class="botao-topo" href="#inicio" aria-label="Voltar ao início" data-i18n-aria-label="controls.backHome">↻</a>
       </div>
     </footer>
   </div>
