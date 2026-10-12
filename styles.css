@@ -690,6 +690,13 @@ h1,
   text-align: center;
 }
 
+.imagem-projeto {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
 .mosaico-projeto {
   display: grid;
   grid-template-columns: repeat(4, 17px);
@@ -744,8 +751,15 @@ h1,
   font-size: 0.56rem;
 }
 
-.seta-projeto {
-  font-size: 0.9rem;
+.link-projeto {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link-projeto:hover,
+.link-projeto:focus-visible {
+  color: #26301f;
 }
 
 .lista-experiencias {

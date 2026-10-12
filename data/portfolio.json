@@ -74,7 +74,7 @@
       "project.label": "PROJETO",
       "project.building": "PROJETO EM CONSTRUÇÃO",
       "project.technologies": "TECNOLOGIAS",
-      "project.academic": "PROJETO ACADÊMICO",
+      "project.github": "Ver código no GitHub ↗",
       "project.empty": "Em breve, novos projetos serão adicionados.",
       "project.timelineStart": "A LINHA DO TEMPO COMEÇA AQUI",
       "project.countOne": "projeto",
@@ -180,7 +180,7 @@
       "project.label": "PROJECT",
       "project.building": "PROJECT IN PROGRESS",
       "project.technologies": "TECHNOLOGIES",
-      "project.academic": "ACADEMIC PROJECT",
+      "project.github": "View source on GitHub ↗",
       "project.empty": "New projects will be added soon.",
       "project.timelineStart": "THE TIMELINE STARTS HERE",
       "project.countOne": "project",
@@ -237,9 +237,10 @@
       "descricao": "Simulação de uma loja virtual com HTML e CSS, desenvolvida para a disciplina de Desenvolvimento de Interfaces Web.",
       "descricao_en": "A web store simulation built with HTML and CSS for the Web Interface Development course.",
       "tecnologias": ["HTML", "CSS"],
-      "link_github": "https://github.com/stemrtns/lojas-oiuaiporque",
-      "link_demo": "#",
-      "imagem": "./assets/imagens/projeto1.jpg",
+      "link_github": "https://github.com/stemrtns/shops-oiuaiporque",
+      "imagem": "./images/projeto-loja-teclado.webp",
+      "imagem_alt": "Teclado exibido como produto da loja",
+      "imagem_alt_en": "Keyboard shown as a product in the store",
       "ano": "2026"
     },
     {
@@ -250,8 +251,9 @@
       "descricao_en": "A responsive portfolio website that uses JSON to load content dynamically.",
       "tecnologias": ["HTML", "CSS", "JavaScript", "JSON"],
       "link_github": "https://github.com/stemrtns/portifolioprofissional",
-      "link_demo": "#",
-      "imagem": "./assets/imagens/projeto2.jpg",
+      "imagem": "./images/projeto-portfolio-wireframe.jpg",
+      "imagem_alt": "Wireframe desktop do portfólio profissional",
+      "imagem_alt_en": "Desktop wireframe of the professional portfolio",
       "ano": "2026"
     }
   ],

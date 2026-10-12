@@ -1,63 +1,82 @@
-# 🕹️ Portfólio Profissional – Brick Game
+# Portfólio Profissional — Stefânia Alves Martins
 
-Portfólio profissional desenvolvido para a disciplina de **Desenvolvimento de Interfaces Web (DIW)** da PUC Minas. O projeto adota uma identidade visual única e nostálgica inspirada no clássico console portátil **Brick Game**, unindo o design retrô/pixel com uma estrutura moderna, limpa e responsiva.
+Portfólio responsivo desenvolvido para a disciplina de Desenvolvimento de Interfaces Web (DIW) da PUC Minas. A interface tem identidade visual inspirada no Brick Game e apresenta a trajetória acadêmica e profissional da autora.
 
----
+## Funcionalidades
 
-## 📋 Descrição do Projeto
-O objetivo deste portfólio é apresentar de forma criativa e acessível a minha trajetória académica e profissional, destacando:
-- **Sobre Mim:** Apresentação pessoal em português ou inglês, selecionada pelo controle de idioma, destacando a transição da Enfermagem para a Ciência da Computação na PUC Minas.
-- **Projetos:** Linha do tempo interativa com os principais desenvolvimentos académicos e práticos.
-- **Experiências:** Histórico profissional e académico estruturado.
-- **Contato:** Canais de comunicação diretos e formulário interativo, com interface disponível em português e inglês.
+- Navegação por cinco seções: início, sobre mim, projetos, experiências e contato.
+- Conteúdo da interface e biografia disponíveis em português e inglês.
+- Projetos carregados de `data/portfolio.json`, organizados por ano e com links para seus repositórios.
+- Perfil, experiências e canais de contato carregados do mesmo arquivo JSON.
+- Formulário com validação do navegador. Ao enviar, abre um rascunho no aplicativo de e-mail do visitante; o site não envia mensagens por um servidor.
+- Layout responsivo para celular e desktop.
 
----
+## Tecnologias utilizadas
 
-## 🎨 Protótipos e Wireframes (Figma)
-O projeto foi planeado com foco em média fidelidade, simulando a interface de um dispositivo portátil com ecrã integrado, painel de pontuação e comandos direcionais.
+- HTML5
+- CSS3 (Grid, Flexbox, variáveis CSS e media queries)
+- JavaScript sem bibliotecas externas
+- JSON para os dados do portfólio e as traduções
+- Git e GitHub
 
-Abaixo estão dispostas as telas do projeto em suas respetivas visualizações:
+Não há dependências de pacotes nem etapa de compilação.
 
-| Página | Versão Desktop | Versão Mobile / Responsiva |
-| :--- | :---: | :---: |
-| **Página Inicial (Home)** | <img width="500" alt="Wireframe Contato Desktop" src="https://github.com/user-attachments/assets/de17438c-6a8c-4249-88c1-b84a4b7cb535" /> | <img width="300" alt="Wireframe Contato Mobile" src="https://github.com/user-attachments/assets/79feb450-5e08-4789-952a-844ea1a15434" /> |
-| **Sobre mim** | <img width="500" alt="Wireframe Experiências Desktop" src="https://github.com/user-attachments/assets/da8643ae-d0fd-4d08-877c-3c54f04d0621" /> | <img width="300" alt="Wireframe Experiências Mobile" src="https://github.com/user-attachments/assets/c6a91695-30d3-4561-81fb-3a1061125f3d" /> |
-| **Projetos** | <img width="500" alt="Wireframe Projetos Desktop" src="https://github.com/user-attachments/assets/b21f93d9-12bb-41cf-9d5b-653f7b2244dc" /> | <img width="300" alt="Wireframe Projetos Mobile" src="https://github.com/user-attachments/assets/5bb42ebd-89df-44a3-acea-c61bf92b1ce6" /> |
-| **Experiências** | <img width="500" alt="Wireframe Sobre Mim Desktop" src="https://github.com/user-attachments/assets/a096e626-9389-4cb9-b3d2-f916d86c16c5" /> | <img width="300" alt="Wireframe Sobre Mim Mobile" src="https://github.com/user-attachments/assets/ffde905d-86f7-4039-a160-5e049763bd23" /> |
-| **Contato** | <img width="500" alt="Wireframe Home Desktop" src="https://github.com/user-attachments/assets/5fb32d9e-0f1c-45a7-95f8-99f157ca36b4" /> | <img width="300" alt="Wireframe Home Mobile" src="https://github.com/user-attachments/assets/072a363b-bf98-48d7-9669-fc998f1190dd" /> |
-
-
-
----
-
-## 🛠️ Tecnologias Previstas
-As seguintes tecnologias e ferramentas estão planeadas para a implementação do projeto nas próximas sprints:
-- **Lupa / Marcação:** HTML5 estruturado com foco em semântica e acessibilidade.
-- **Estilização:** CSS3 (utilizando variáveis, Flexbox e Grid para garantir a responsividade em dispositivos móveis).
-- **Linguagem de Comportamento:** JavaScript (Vanilla) para manipulação do DOM, alternância de idioma e carregamento dinâmico de conteúdo e traduções através de ficheiro **JSON**.
-- **Design / Prototipagem:** Figma.
-- **Controle de Versão:** Git e GitHub.
-
----
-
-## 🗂️ Estrutura Inicial do Site
-A organização de diretórios planeada para o projeto segue o padrão modular:
+## Estrutura do projeto
 
 ```text
-portifolio-profissional/
-│
-├── index.html          # Página principal (Home / Seções)
-├── css/
-│   └── style.css       # Estilização global e tema Brick Game
-├── js/
-│   └── main.js         # Lógica de navegação e carregamento do JSON
-├── data/
-│   └── dados.json      # Base de dados estruturada para projetos e experiências
-└── assets/
-    └── images/         # Imagens, GIFs e capturas de tela dos projetos
+.
+├── .github/workflows/deploy-pages.yml
+├── data/portfolio.json
+├── images/
+├── wireframes/
+├── index.html
+├── script.js
+├── styles.css
+└── README.md
+```
 
-👩‍💻 Autora
+## Executar localmente
 
-Stefânia Alves Martins
+1. Clone o repositório e abra a pasta no Visual Studio Code:
 
-Estudante de Ciência da Computação na PUC Minas (2º período) e entusiasta da tecnologia, busco aprimorar continuamente minhas habilidades. Meu objetivo é projetar e desenvolver soluções tecnológicas eficientes, para assim então fazer diferença no que realmente importa.
+   ```bash
+   git clone https://github.com/stemrtns/portifolioprofissional.git
+   cd portifolioprofissional
+   ```
+
+2. Inicie um servidor local. No VS Code, instale a extensão **Live Server**, clique com o botão direito em `index.html` e selecione **Open with Live Server**.
+
+O servidor local é necessário para que o navegador consiga carregar `data/portfolio.json` com `fetch`.
+
+## Projetos
+
+- [Shops Oiuaiporque](https://github.com/stemrtns/shops-oiuaiporque) — simulação de loja virtual com HTML e CSS.
+- [Portfólio Profissional](https://github.com/stemrtns/portifolioprofissional) — este portfólio.
+
+As imagens dos cards ficam em `images/`. A prévia do portfólio é um wireframe do projeto, não uma captura da versão publicada.
+
+## Wireframes
+
+| Página | Desktop | Mobile |
+| --- | --- | --- |
+| Início | <img width="280" alt="Wireframe desktop da página inicial" src="./wireframes/WireFrame%20(1)_page-0001.jpg"> | <img width="140" alt="Wireframe mobile da página inicial" src="./wireframes/WireFrame%20(1)_page-0002.jpg"> |
+| Sobre mim | <img width="280" alt="Wireframe desktop da página Sobre mim" src="./wireframes/WireFrame%20(1)_page-0008.jpg"> | <img width="140" alt="Wireframe mobile da página Sobre mim" src="./wireframes/WireFrame%20(1)_page-0004.jpg"> |
+| Projetos | <img width="280" alt="Wireframe desktop da página de projetos" src="./wireframes/WireFrame%20(1)_page-0009.jpg"> | <img width="140" alt="Wireframe mobile da página de projetos" src="./wireframes/WireFrame%20(1)_page-0006.jpg"> |
+| Experiências | <img width="280" alt="Wireframe desktop da página de experiências" src="./wireframes/WireFrame%20(1)_page-0007.jpg"> | <img width="140" alt="Wireframe mobile da página de experiências" src="./wireframes/WireFrame%20(1)_page-0003.jpg"> |
+| Contato | <img width="280" alt="Wireframe desktop da página de contato" src="./wireframes/WireFrame%20(1)_page-0010.jpg"> | <img width="140" alt="Wireframe mobile da página de contato" src="./wireframes/WireFrame%20(1)_page-0005.jpg"> |
+
+## Publicação no GitHub Pages
+
+O repositório inclui um workflow pronto para publicar os arquivos estáticos no GitHub Pages a cada push para `main`. Para ativar:
+
+1. No GitHub, abra **Settings → Pages** e escolha **GitHub Actions** como fonte de publicação.
+2. Envie as alterações para a branch `main`.
+3. Confira a execução do workflow **Deploy to GitHub Pages** na aba **Actions**.
+
+Depois que a primeira execução terminar com sucesso, o site deverá estar disponível em [stemrtns.github.io/portifolioprofissional](https://stemrtns.github.io/portifolioprofissional/). A URL ainda não está publicada até essa configuração e execução.
+
+## Autora
+
+**Stefânia Alves Martins** — estudante de Ciência da Computação na PUC Minas.
+
+[Perfil no GitHub](https://github.com/stemrtns)

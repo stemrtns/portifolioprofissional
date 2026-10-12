@@ -432,12 +432,21 @@ function desenharProjetos(projetos) {
     );
 
     var arte = criarElemento("div", "arte-projeto");
-    arte.setAttribute("aria-hidden", "true");
-    var blocos = criarElemento("div", "mosaico mosaico-projeto");
-    for (var bloco = 0; bloco < 6; bloco += 1) {
-      blocos.appendChild(document.createElement("i"));
+    if (projeto.imagem) {
+      var imagem = criarElemento("img", "imagem-projeto");
+      imagem.src = projeto.imagem;
+      imagem.alt = projeto.imagemAlt || "";
+      imagem.loading = "lazy";
+      imagem.decoding = "async";
+      arte.appendChild(imagem);
+    } else {
+      arte.setAttribute("aria-hidden", "true");
+      var blocos = criarElemento("div", "mosaico mosaico-projeto");
+      for (var bloco = 0; bloco < 6; bloco += 1) {
+        blocos.appendChild(document.createElement("i"));
+      }
+      arte.append(blocos, criarElemento("span", "", texto("project.building")));
     }
-    arte.append(blocos, criarElemento("span", "", texto("project.building")));
 
     var titulo = criarElemento("h3", "", projeto.nome);
     var descricao = criarElemento("p", "descricao-projeto", projeto.descricao);
@@ -450,8 +459,11 @@ function desenharProjetos(projetos) {
     tecnologias.appendChild(listaTecnologias);
 
     var rodape = criarElemento("div", "rodape-projeto");
-    rodape.appendChild(criarElemento("span", "", texto("project.academic")));
-    rodape.appendChild(criarElemento("span", "seta-projeto", "↗"));
+    var linkGitHub = criarElemento("a", "link-projeto", texto("project.github"));
+    linkGitHub.href = projeto.linkGithub;
+    linkGitHub.target = "_blank";
+    linkGitHub.rel = "noopener noreferrer";
+    rodape.appendChild(linkGitHub);
 
     artigo.append(cabecalho, arte, titulo, descricao, tecnologias, rodape);
     lista.appendChild(artigo);
@@ -589,7 +601,12 @@ function renderizarDadosDoPortfolio() {
         nome: ingles ? projeto.titulo_en || projeto.titulo : projeto.titulo,
         periodo: projeto.ano,
         descricao: ingles ? projeto.descricao_en || projeto.descricao : projeto.descricao,
-        tecnologias: projeto.tecnologias
+        tecnologias: projeto.tecnologias,
+        imagem: projeto.imagem,
+        imagemAlt: ingles
+          ? projeto.imagem_alt_en || projeto.imagem_alt
+          : projeto.imagem_alt,
+        linkGithub: projeto.link_github
       };
     })
   );
