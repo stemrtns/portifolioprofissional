@@ -1,0 +1,52 @@
+{
+  "nome": "Stefânia Alves Martins",
+  "area": "Estudante de Ciência da Computação",
+  "areaEn": "Computer Science student",
+  "introducao": "Sou estudante de Ciência da Computação, atualmente no segundo período, e estou construindo minha trajetória na área de tecnologia. Tenho interesse em desenvolvimento de software e na criação de soluções digitais. Meu objetivo é fortalecer minha base técnica e transformar o que aprendo em projetos práticos, preparando-me para atuar profissionalmente na área.",
+  "introducaoEn": "I am a second-semester Computer Science student building my path in technology. I am interested in software development and creating digital solutions. My goal is to strengthen my technical foundation and apply what I learn to practical projects as I prepare for a career in technology.",
+  "sobre": "Estou no início da graduação em Ciência da Computação e quero aproveitar esse período para aprender, experimentar e desenvolver novas habilidades. Criei este portfólio para apresentar minha formação e compartilhar os projetos e aprendizados que fazem parte da minha trajetória.",
+  "sobreEn": "I am at the beginning of my Computer Science degree and want to use this time to learn, experiment, and develop new skills. I created this portfolio to present my education and share the projects and lessons that are part of my journey.",
+  "interesses": "Desenvolvimento de software e criação de soluções digitais.",
+  "interessesEn": "Software development and creating digital solutions.",
+  "objetivo": "Fortalecer minha base técnica e transformar o que aprendo em projetos práticos.",
+  "objetivoEn": "Strengthen my technical foundation and turn what I learn into practical projects.",
+  "formacao": "Ciência da Computação — 2º período",
+  "formacaoEn": "Computer Science — 2nd semester",
+  "localizacao": "Belo Horizonte, MG",
+  "email": "stefaniamrtns@gmail.com",
+  "redesSociais": [
+    {
+      "nome": "LinkedIn",
+      "link": "https://www.linkedin.com/in/stef%C3%A2nia-martins-a97440268/"
+    },
+    {
+      "nome": "GitHub",
+      "link": "https://github.com/stemrtns"
+    }
+  ],
+  "projetos": [
+    {
+      "nome": "Portfólio acadêmico",
+      "nomeEn": "Academic portfolio",
+      "ano": "2026",
+      "descricao": "Protótipo desenvolvido para apresentar minha trajetória acadêmica, com conteúdo estruturado em JSON e interface responsiva.",
+      "descricaoEn": "A portfolio website created to present my academic journey, with JSON-structured content and a responsive interface.",
+      "periodo": "Em desenvolvimento · Sprint 2",
+      "periodoEn": "In progress · Sprint 2",
+      "tecnologias": ["HTML", "CSS", "JavaScript", "JSON"]
+    }
+  ],
+  "experiencias": [
+    {
+      "categoria": "Formação acadêmica",
+      "categoriaEn": "Education",
+      "cargo": "Ciência da Computação — 2º período",
+      "cargoEn": "Computer Science — 2nd semester",
+      "instituicao": "PUC Minas",
+      "periodo": "Em andamento",
+      "periodoEn": "In progress",
+      "descricao": "Graduação em andamento, com interesse em desenvolvimento de software e criação de soluções digitais.",
+      "descricaoEn": "Currently pursuing a degree, with an interest in software development and creating digital solutions."
+    }
+  ]
+}
