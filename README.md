@@ -46,6 +46,12 @@ Stefânia Alves Martins
 Estudante de Ciência da Computação na PUC minas(2º período) e entusiasta da tecnologia, busco aprimorar continuamente minhas habilidades. Meu objetivo é projetar e desenvolver soluções tecnológicas eficientes, para assim então fazer diferença no que realmente importa.
 
 ---
+## 🔗 Acesso ao Projeto (Deploy)
+
+O portfólio profissional está hospedado na nuvem e pode ser acessado em funcionamento através do link abaixo:
+
+* **🔗 [Acessar Portfólio Online (GitHub Pages)](https://stemrtns.github.io/portifolioprofissional/)**
+---
 
 ## 🗂️ Estrutura Inicial do Site
 A organização de diretórios planeada para o projeto segue o padrão modular:
