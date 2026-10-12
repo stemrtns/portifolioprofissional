@@ -459,11 +459,21 @@ function desenharProjetos(projetos) {
     tecnologias.appendChild(listaTecnologias);
 
     var rodape = criarElemento("div", "rodape-projeto");
-    var linkGitHub = criarElemento("a", "link-projeto", texto("project.github"));
-    linkGitHub.href = projeto.linkGithub;
-    linkGitHub.target = "_blank";
-    linkGitHub.rel = "noopener noreferrer";
-    rodape.appendChild(linkGitHub);
+    if (projeto.linkGithub) {
+      var linkGitHub = criarElemento("a", "link-projeto", texto("project.github"));
+      linkGitHub.href = projeto.linkGithub;
+      linkGitHub.target = "_blank";
+      linkGitHub.rel = "noopener noreferrer";
+      rodape.appendChild(linkGitHub);
+    } else if (projeto.linkDemo) {
+      var linkDemo = criarElemento("a", "link-projeto", texto("project.demo"));
+      linkDemo.href = projeto.linkDemo;
+      rodape.appendChild(linkDemo);
+    } else {
+      rodape.appendChild(
+        criarElemento("span", "status-projeto", projeto.status)
+      );
+    }
 
     artigo.append(cabecalho, arte, titulo, descricao, tecnologias, rodape);
     lista.appendChild(artigo);
@@ -606,7 +616,11 @@ function renderizarDadosDoPortfolio() {
         imagemAlt: ingles
           ? projeto.imagem_alt_en || projeto.imagem_alt
           : projeto.imagem_alt,
-        linkGithub: projeto.link_github
+        linkGithub: projeto.link_github,
+        linkDemo: projeto.link_demo,
+        status: ingles
+          ? projeto.status_en || texto("project.academic")
+          : projeto.status_pt || texto("project.academic")
       };
     })
   );

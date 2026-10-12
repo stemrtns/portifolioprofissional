@@ -762,6 +762,10 @@ h1,
   color: #26301f;
 }
 
+.status-projeto {
+  color: #526047;
+}
+
 .lista-experiencias {
   display: grid;
   gap: 10px;

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="title">
+  <title id="title">Indicadores de educação</title>
+  <rect width="800" height="440" rx="24" fill="#bdcbae"/>
+  <rect x="86" y="54" width="628" height="332" rx="16" fill="#e1e8d8" stroke="#536148" stroke-width="8"/>
+  <text x="126" y="112" fill="#35412f" font-family="monospace" font-size="27">INDICADORES DE EDUCACAO</text>
+  <path d="M150 320h500M170 300V170" stroke="#536148" stroke-width="5"/>
+  <g fill="#738568">
+    <rect x="215" y="232" width="72" height="68" rx="5"/>
+    <rect x="330" y="198" width="72" height="102" rx="5"/>
+    <rect x="445" y="158" width="72" height="142" rx="5"/>
+    <rect x="560" y="213" width="72" height="87" rx="5"/>
+  </g>
+  <path d="M251 217l115-43 115-49 115 38" fill="none" stroke="#d1a800" stroke-width="8"/>
+  <g fill="#f5cf37" stroke="#947600" stroke-width="4">
+    <circle cx="251" cy="217" r="10"/><circle cx="366" cy="174" r="10"/>
+    <circle cx="481" cy="125" r="10"/><circle cx="596" cy="163" r="10"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="title">
+  <title id="title">Calculadora de fatorial</title>
+  <rect width="800" height="440" rx="24" fill="#bdcbae"/>
+  <rect x="90" y="58" width="620" height="324" rx="16" fill="#e1e8d8" stroke="#536148" stroke-width="8"/>
+  <text x="132" y="120" fill="#35412f" font-family="monospace" font-size="30">FATORIAL</text>
+  <rect x="132" y="154" width="536" height="76" rx="8" fill="#cbd7bf" stroke="#718067" stroke-width="4"/>
+  <text x="166" y="207" fill="#34402e" font-family="monospace" font-size="42">5</text>
+  <circle cx="630" cy="192" r="22" fill="#f5cf37" stroke="#947600" stroke-width="4"/>
+  <text x="132" y="300" fill="#35412f" font-family="monospace" font-size="36">5! = 120</text>
+  <rect x="132" y="325" width="190" height="32" rx="8" fill="#f5cf37"/>
+</svg>

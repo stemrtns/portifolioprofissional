@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="title">
+  <title id="title">Conceito de catálogo de veículos</title>
+  <rect width="800" height="440" rx="24" fill="#bdcbae"/>
+  <rect x="70" y="58" width="660" height="324" rx="16" fill="#e1e8d8" stroke="#536148" stroke-width="8"/>
+  <rect x="110" y="96" width="580" height="52" rx="8" fill="#cbd7bf" stroke="#718067" stroke-width="4"/>
+  <g fill="#f5cf37" stroke="#947600" stroke-width="3">
+    <rect x="128" y="108" width="126" height="28" rx="7"/>
+    <rect x="270" y="108" width="126" height="28" rx="7"/>
+    <rect x="412" y="108" width="126" height="28" rx="7"/>
+    <circle cx="638" cy="122" r="15"/>
+  </g>
+  <g fill="#cbd7bf" stroke="#536148" stroke-width="5">
+    <rect x="110" y="178" width="270" height="148" rx="10"/>
+    <rect x="420" y="178" width="270" height="148" rx="10"/>
+  </g>
+  <path d="M154 265l34-43h92l45 43v23H154zM464 265l34-43h92l45 43v23H464z" fill="#738568" stroke="#35412f" stroke-width="5"/>
+  <g fill="#35412f"><circle cx="204" cy="291" r="15"/><circle cx="291" cy="291" r="15"/><circle cx="514" cy="291" r="15"/><circle cx="601" cy="291" r="15"/></g>
+</svg>
