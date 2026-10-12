@@ -51,13 +51,20 @@ Estudante de Ciência da Computação na PUC minas(2º período) e entusiasta da
 A organização de diretórios planeada para o projeto segue o padrão modular:
 
 ```text
-portifolio-profissional/
-├── .github/workflows/deploy-pages.yml
 ├── data/portfolio.json
 ├── demos/
+│   ├── algoritmos.html
+│   ├── algoritmos.js
+│   ├── catalogo-veiculos.html
+│   ├── catalogo-veiculos.js
+│   ├── estudo-educacao.html
+│   ├── fatorial.html
+│   ├── fatorial.js
+│   ├── project-pages.css
+│   └── project-pages.js
 ├── images/
 ├── wireframes/
 ├── index.html
 ├── script.js
-├── styles.css
-└── README.md
+└── styles.css
+```

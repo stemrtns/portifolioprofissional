@@ -244,9 +244,9 @@
       "descricao_en": "A web store simulation built with HTML and CSS for the Web Interface Development course.",
       "tecnologias": ["HTML", "CSS"],
       "link_github": "https://github.com/stemrtns/shops-oiuaiporque",
-      "imagem": "./images/projeto-loja-teclado.webp",
-      "imagem_alt": "Teclado exibido como produto da loja",
-      "imagem_alt_en": "Keyboard shown as a product in the store",
+      "imagem": "./images/projeto-loja-captura.png",
+      "imagem_alt": "Captura da loja virtual com teclado, headset e mouse",
+      "imagem_alt_en": "Screenshot of the online store showing a keyboard, headset, and mouse",
       "ano": "2026"
     },
     {
@@ -289,7 +289,8 @@
       "imagem_alt_en": "Illustrative diagram of data structures",
       "ano": "2026",
       "status_pt": "EXERCÍCIOS ACADÊMICOS",
-      "status_en": "ACADEMIC EXERCISES"
+      "status_en": "ACADEMIC EXERCISES",
+      "link_demo": "./demos/algoritmos.html"
     },
     {
       "id": 5,
@@ -303,7 +304,8 @@
       "imagem_alt_en": "Illustration of education indicator analysis",
       "ano": "2025",
       "status_pt": "ESTUDO ACADÊMICO",
-      "status_en": "ACADEMIC STUDY"
+      "status_en": "ACADEMIC STUDY",
+      "link_demo": "./demos/estudo-educacao.html"
     },
     {
       "id": 6,
@@ -317,7 +319,8 @@
       "imagem_alt_en": "Illustration of a vehicle catalog and filters",
       "ano": "2026",
       "status_pt": "CONCEPÇÃO DO SISTEMA",
-      "status_en": "SYSTEM CONCEPT"
+      "status_en": "SYSTEM CONCEPT",
+      "link_demo": "./demos/catalogo-veiculos.html"
     }
   ],
   "experiencias": [

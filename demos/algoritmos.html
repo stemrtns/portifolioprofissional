@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <title>Algoritmos e Estruturas de Dados — Stefânia Alves Martins</title>
+  <link rel="stylesheet" href="project-pages.css">
+  <script src="project-pages.js" defer></script>
+  <script src="algoritmos.js" defer></script>
+</head>
+<body>
+  <main>
+    <div class="toolbar">
+      <p class="eyebrow">PROJETO ACADÊMICO · C / JAVA</p>
+      <div class="language-buttons" role="group" aria-label="Idioma">
+        <button type="button" data-language="pt" aria-pressed="true">PT</button>
+        <button type="button" data-language="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+    <h1 data-pt="Algoritmos e Estruturas de Dados" data-en="Algorithms and Data Structures"></h1>
+    <p data-pt="Uma demonstração didática de operações estudadas nos exercícios acadêmicos em C e Java. Os códigos originais não foram publicados aqui; esta página independente ilustra os conceitos." data-en="A learning demo of operations studied in the C and Java coursework. The original source files are not published here; this standalone page illustrates the concepts."></p>
+
+    <div class="grid">
+      <section class="panel" aria-labelledby="stack-heading">
+        <h2 id="stack-heading" data-pt="Pilha (LIFO)" data-en="Stack (LIFO)"></h2>
+        <p class="muted" data-pt="O último valor inserido é o primeiro a sair." data-en="The last value added is the first one removed."></p>
+        <div class="inline-controls">
+          <label for="stack-value" data-pt="Valor" data-en="Value"></label>
+          <input id="stack-value" type="number" value="7">
+          <button id="stack-push" type="button" data-pt="Empilhar" data-en="Push"></button>
+          <button id="stack-pop" type="button" data-pt="Desempilhar" data-en="Pop"></button>
+        </div>
+        <p class="muted" data-pt="Topo →" data-en="Top →"></p>
+        <div id="stack-view" class="stack-view" aria-live="polite"></div>
+        <p id="stack-status" class="result" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel" aria-labelledby="queue-heading">
+        <h2 id="queue-heading" data-pt="Fila (FIFO)" data-en="Queue (FIFO)"></h2>
+        <p class="muted" data-pt="O primeiro valor inserido é o primeiro a sair." data-en="The first value added is the first one removed."></p>
+        <div class="inline-controls">
+          <label for="queue-value" data-pt="Valor" data-en="Value"></label>
+          <input id="queue-value" type="number" value="7">
+          <button id="queue-add" type="button" data-pt="Enfileirar" data-en="Enqueue"></button>
+          <button id="queue-remove" type="button" data-pt="Desenfileirar" data-en="Dequeue"></button>
+        </div>
+        <p class="muted" data-pt="Frente →" data-en="Front →"></p>
+        <div id="queue-view" class="queue-view" aria-live="polite"></div>
+        <p id="queue-status" class="result" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="sort-heading">
+      <h2 id="sort-heading" data-pt="Ordenação" data-en="Sorting"></h2>
+      <p data-pt="Esta demonstração usa Counting Sort: conta quantas vezes cada valor aparece e reconstrói a sequência em ordem. Ordene o conjunto para ver o resultado." data-en="This demo uses Counting Sort: it counts how many times each value appears, then rebuilds the sequence in order. Sort the sample set to see the result."></p>
+      <p><strong data-pt="Valores" data-en="Values"></strong>: <span id="sort-values">42, 7, 23, 7, 18</span></p>
+      <button id="sort-button" type="button" data-pt="Ordenar valores" data-en="Sort values"></button>
+      <p id="sort-result" class="result" role="status" aria-live="polite"></p>
+    </section>
+    <p class="notice" data-pt="As operações são exemplos pequenos para fins didáticos; não substituem nem reproduzem integralmente os trabalhos originais." data-en="These small operations are illustrative learning examples; they do not replace or fully reproduce the original coursework."></p>
+    <a class="back-link" href="../index.html#projetos" data-pt="Voltar ao portfólio" data-en="Back to portfolio"></a>
+  </main>
+</body>
+</html>

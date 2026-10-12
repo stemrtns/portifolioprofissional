@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <title>Catálogo de Veículos — Conceito — Stefânia Alves Martins</title>
+  <link rel="stylesheet" href="project-pages.css">
+  <script src="project-pages.js" defer></script>
+  <script src="catalogo-veiculos.js" defer></script>
+</head>
+<body>
+  <main>
+    <div class="toolbar">
+      <p class="eyebrow">CONCEPÇÃO · LEVANTAMENTO DE REQUISITOS</p>
+      <div class="language-buttons" role="group" aria-label="Idioma">
+        <button type="button" data-language="pt" aria-pressed="true">PT</button>
+        <button type="button" data-language="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+    <h1 data-pt="Catálogo de veículos" data-en="Vehicle catalog"></h1>
+    <p data-pt="Conceito de um sistema para facilitar a busca de veículos e o contato entre clientes e consultores. O material local é uma especificação de requisitos, não uma aplicação implementada." data-en="A system concept to make vehicle search and customer-consultant contact easier. The local materials describe requirements, not a finished application."></p>
+    <p class="notice" data-pt="Protótipo didático: os veículos e preços abaixo são fictícios e não representam anúncios reais. Filtros e favoritos funcionam somente nesta página." data-en="Learning prototype: the sample vehicles and prices below are fictional and are not real listings. Filters and favorites work only on this page."></p>
+
+    <section class="panel" aria-labelledby="filters-heading">
+      <h2 id="filters-heading" data-pt="Experimente os filtros" data-en="Try the filters"></h2>
+      <div class="grid">
+        <label>
+          <span data-pt="Marca" data-en="Make"></span>
+          <select id="make-filter">
+            <option value="" data-pt="Todas" data-en="All"></option>
+            <option value="Toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Fiat">Fiat</option>
+          </select>
+        </label>
+        <label>
+          <span data-pt="Preço máximo (R$)" data-en="Maximum price (R$)"></span>
+          <input id="price-filter" type="number" min="0" placeholder="Ex.: 130000" data-placeholder-pt="Ex.: 130000" data-placeholder-en="e.g. 130000">
+        </label>
+      </div>
+      <div class="controls" style="margin-top:12px">
+        <button id="clear-filters" type="button" data-pt="Limpar filtros" data-en="Clear filters"></button>
+        <button id="show-favorites" type="button" aria-pressed="false" data-pt="Mostrar favoritos" data-en="Show favorites"></button>
+        <span id="result-count" class="muted" role="status" aria-live="polite"></span>
+      </div>
+      <div id="vehicle-list" class="vehicle-list" aria-live="polite"></div>
+    </section>
+
+    <section class="panel grid">
+      <div>
+        <h2 data-pt="Requisitos funcionais" data-en="Functional requirements"></h2>
+        <ul>
+          <li data-pt="Filtrar por marca, modelo, ano e faixa de preço, com opção para limpar filtros." data-en="Filter by make, model, year, and price range, with an option to clear filters."></li>
+          <li data-pt="Ver detalhes do veículo, salvar favoritos e iniciar contato pelo WhatsApp." data-en="View vehicle details, save favorites, and start a WhatsApp conversation."></li>
+          <li data-pt="Enviar dados do veículo atual para solicitar uma avaliação de troca." data-en="Submit details about a current vehicle to request a trade-in evaluation."></li>
+          <li data-pt="Exibir localização e canais de contato da loja." data-en="Show the dealership location and contact channels."></li>
+        </ul>
+      </div>
+      <div>
+        <h2 data-pt="Requisitos de qualidade" data-en="Quality requirements"></h2>
+        <ul>
+          <li data-pt="Layout responsivo, acessível e compatível com navegadores comuns." data-en="Responsive, accessible layout compatible with common browsers."></li>
+          <li data-pt="Carregamento desejado abaixo de três segundos e imagens otimizadas." data-en="Target load time under three seconds and optimized images."></li>
+          <li data-pt="Disponibilidade contínua e publicação pública foram requisitos planejados, não características entregues." data-en="Continuous availability and public hosting were planned requirements, not delivered features."></li>
+        </ul>
+      </div>
+    </section>
+    <p class="muted" data-pt="Tecnologias planejadas no documento: HTML, CSS e JavaScript. Backend, banco de dados, integração real com WhatsApp, favoritos persistentes e envio de avaliação ainda precisariam ser implementados." data-en="Technologies planned in the document: HTML, CSS, and JavaScript. A backend, database, real WhatsApp integration, persistent favorites, and trade-in submission would still need implementation."></p>
+    <a class="back-link" href="../index.html#projetos" data-pt="Voltar ao portfólio" data-en="Back to portfolio"></a>
+  </main>
+</body>
+</html>
